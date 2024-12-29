@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=home" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=search" />
+<header class="root">  
+  
+    <nav role="navigation" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li *ngFor="let item of navigationItems" class="nav-item">
+          <a [routerLink]="[item.path]"
+             routerLinkActive="active"
+             [attr.aria-current]="isCurrentRoute(item.path) ? 'page' : null"
+             [attr.aria-label]="item.ariaLabel"
+             class="nav-link"
+             (keydown.enter)="handleNavigation(item)"
+             (click)="handleNavigation(item)">
+            
+            <mat-icon *ngIf="item.icon"
+                      [fontIcon]="item.icon"
+                      class="material-symbols-outlined"
+                      aria-hidden="true">
+            </mat-icon>
+            <span class="nav-text">{{ item.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+        <p class="text">
+            <b> WELCOME TO OUR SITE <br> 
+                 ENJOY YOUR FREE TIME
+            </b>
+        </p> 
+        
+      <!-- image slider-->  
+    <div *ngIf="images && images.length > 0" class="Image_slider" >  
+        <img *ngFor="let image of images ; let i=index" [src]="image.imageSrc" [alt]="image.imageAlt"
+        [ngClass]="{'image-active' :selectedIndex ===i}" class="fade">
+        <div  *ngIf="indicators " class="dot_contenaire">
+          <span *ngFor="let dot of images; let i=index" class="dot" [ngClass]="{'active': selectedIndex===i}" 
+           (click)="selectImage(i)"> 
+
+          </span>
+
+
+        </div>
+
+         <!-- <div *ngIf="controls" class="switch">
+            <i class="fas.fa-arrow-circle-left.icon-carousel.icon-prev"> 
+
+            </i>
+         </div>  
+                      -->
+    </div>   
+</header>
+<button type="button" (click)="start()" class="start"> 
+    start  
+
+</button>

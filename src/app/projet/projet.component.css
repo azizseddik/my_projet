@@ -1,0 +1,289 @@
+body{ 
+    background-color:rgb(53, 97, 179);
+    font-family: Arial, Helvetica, sans-serif;
+} 
+.images {
+    display: flex;
+    gap: 20px; /* Space between columns */
+    max-width: 1200px; /* Maximum width of the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+}
+
+.column-left, .column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between images */
+}
+
+.column-left {
+    flex: 3; /* Takes up 3/5 of the space */
+}
+
+.column-right {
+    flex: 2; /* Takes up 2/5 of the space */
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive design for smaller screens */
+@media screen and (max-width: 768px) {
+    .images {
+        flex-direction: column;
+    }
+
+    .column-left, .column-right {
+        width: 100%;
+    }
+}
+/* .images{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img4{ 
+    width: size;
+    height: size;
+    position: relative;
+    
+
+
+
+}
+.img5{ 
+    width: 500px;
+    height: 150px;
+   
+    position: relative;
+    left: -250px;
+    top: 190px;
+}
+.img3{
+    width: 500px;
+    height: 150px;
+   
+    position: relative;
+    top: 370px;
+    left: 240px;
+}
+.img2{ 
+    width: 500px;
+    height: 150px;
+    background-color: red;
+    position: relative;
+    top: 350px; 
+    left :-27px;
+}
+.img1{   width: 500px;
+    height: 150px;
+    background-color: red;
+    position: relative;
+    right: -172px;} */
+/* -----------------------------------
+   General Styles
+----------------------------------- */
+
+/* Reset default browser styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a pleasant font and set background color */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* -----------------------------------
+   Navigation Bar Styles
+----------------------------------- */
+
+nav {
+    background-color: #ffffff; /* Material Design white background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: fixed; /* Keep nav fixed at top */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure nav stays on top */
+}
+
+/* Container for navigation items using Flexbox */
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between nav items */
+    list-style: none;
+    padding: 0 20px; /* Horizontal padding */
+    height: 60px; /* Fixed height for nav */
+}
+
+/* Left side navigation links */
+nav ul.left {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for each navigation link item */
+nav ul.left li {
+    margin-right: 30px; /* Space between links */
+    position: relative; /* For potential pseudo-elements */
+}
+
+/* Navigation links */
+nav ul.left li a {
+    text-decoration: none;
+    color: #333333; /* Dark text color */
+    font-size: 16px;
+    display: flex;
+    align-items: center; /* Align icon and text */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+/* Material Icons within navigation links */
+nav ul.left li a .material-icons {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 20px; /* Icon size */
+    transition: transform 0.3s ease; /* Smooth transform transition */
+}
+
+/* Hover effects for navigation links */
+nav ul.left li a:hover {
+    color: #6200ea; /* Material Design primary color on hover */
+}
+
+nav ul.left li a:hover .material-icons {
+    transform: scale(1.2); /* Slightly enlarge icon on hover */
+}
+
+/* Right side search container */
+nav ul.right {
+    display: flex;
+    align-items: center;
+}
+
+/* Search form container */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    transition: width 0.3s ease; /* Smooth width transition */
+    width: 150px; /* Initial width */
+}
+
+/* Search input field */
+.search-container input {
+    width: 100%;
+    padding: 8px 35px 8px 10px; /* Padding with space for icon */
+    border: none;
+    border-radius: 20px;
+    background-color: #f0f0f0; /* Light gray background */
+    transition: width 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+    font-size: 14px;
+    outline: none;
+}
+
+/* Expand search input on focus */
+.search-container input:focus {
+    width: 200px; /* Expanded width */
+    background-color: #e0e0e0; /* Slightly darker on focus */
+}
+
+/* Search icon inside the input field */
+.search-container .material-icons {
+    position: absolute;
+    right: 10px;
+    color: #888888; /* Gray icon color */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Hover effect for search icon */
+.search-container:hover .material-icons {
+    color: #6200ea; /* Change icon color on hover */
+    transform: rotate(90deg); /* Rotate icon on hover */
+}
+
+/* -----------------------------------
+   Responsive Design
+----------------------------------- */
+
+/* Media query for screens less than or equal to 768px */
+@media (max-width: 768px) {
+    /* Adjust nav padding */
+    nav ul {
+        padding: 0 10px;
+    }
+
+    /* Hide text labels and show only icons for nav links */
+    nav ul.left li a {
+        flex-direction: column;
+        font-size: 12px;
+    }
+
+    nav ul.left li a .material-icons {
+        margin: 0 0 4px 0;
+    }
+
+    /* Reduce margin between nav items */
+    nav ul.left li {
+        margin-right: 15px;
+    }
+
+    /* Adjust search container */
+    .search-container {
+        width: 100px;
+    }
+
+    .search-container input:focus {
+        width: 150px;
+    }
+}
+
+/* Media query for screens less than or equal to 480px */
+@media (max-width: 480px) {
+    /* Stack nav items vertically */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+    }
+
+    /* Left and right containers stack vertically */
+    nav ul.left, nav ul.right {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Nav links take full width */
+    nav ul.left li {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    nav ul.left li a {
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    /* Center search container */
+    nav ul.right {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    /* Adjust search container width */
+    .search-container {
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 100%;
+    }
+}
